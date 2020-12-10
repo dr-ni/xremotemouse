@@ -1,8 +1,7 @@
 CC=gcc
 CFLAGS= -lX11 -lXtst -lXext
 all: xremotemouse
-
-fakemouse: xremotemouse.c
+xremotemouse: xremotemouse.c
 	$(CC) xremotemouse.c $(CFLAGS) -o xremotemouse
 
 install:
