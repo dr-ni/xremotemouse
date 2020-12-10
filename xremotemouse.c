@@ -14,6 +14,8 @@ int main (int argc, char* argv[]){
   char param[64];
   int sw=0;
 
+  setenv("DISPLAY",":0",1);
+                
   if(argc < 2){
       printf("Syntax: %s [l|m|r|d]\n", argv[0]);
       exit(1);
