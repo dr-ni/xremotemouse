@@ -1,5 +1,3 @@
-/* fakeMouse.c */
-// gcc fakeMouse.c -o fakeMouse -lX11 -lXtst -lXext
 // Mouse Button Mappings: The 2nd argument in XTestFakeButtonEvent() represent the specific mouse button. You can map 8 mouse buttons (1 – Left, 2 – Middle, 3 – Right, 5 – Scroll,..).
 
 #include <stdio.h>
@@ -17,7 +15,7 @@ int main (int argc, char* argv[]){
   setenv("DISPLAY",":0",1);
                 
   if(argc < 2){
-      printf("Syntax: %s [l|m|r|d]\n", argv[0]);
+      printf("Syntax: %s [l|m|r|d]\n l=left click\n m=middle click\n r=right click\n d=double click\n", argv[0]);
       exit(1);
   }
   memset(param,0,sizeof(param));
@@ -34,13 +32,12 @@ int main (int argc, char* argv[]){
    &event.xbutton.y_root, &event.xbutton.x, &event.xbutton.y,
    &event.xbutton.state);
  
-  /* Fake the pointer movement to new relative position *
-  XTestFakeMotionEvent (dpy, 0, event.xbutton.x + 100,
-  event.xbutton.y + 50, CurrentTime);
+  /* move the pointer to new relative position *
+  XTestFakeMotionEvent (dpy, 0, event.xbutton.x + 100, event.xbutton.y + 50, CurrentTime);
   XSync(dpy, 0);
   sleep(3);
  
-  /* Fake the pointer movement to new absolate position 
+  /* move the pointer to new absolute position 
   XTestFakeMotionEvent (dpy, 0, 250, 250, CurrentTime);
   sleep(3);
  */
