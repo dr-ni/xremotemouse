@@ -5,8 +5,6 @@ xremotemouse: xremotemouse.c
 	$(CC) xremotemouse.c $(CFLAGS) -o xremotemouse
 dep_install:
 	sudo apt install libx11-dev
-	sudo apt install libx11-dev
-	sudo apt-get install libxtst-dev
 
 install:
 	sudo cp xremotemouse /usr/local/bin/
